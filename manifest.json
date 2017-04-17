@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Bloom",
+  "description": "A replacement for the default new tab.",
+  "version": "1.2.0",
+  "icons": {
+    "128": "images/general/bloom_logo_colour.png"
+  },
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "geolocation",
+    "https://ajax.googleapis.com/",
+    "http://www.andrewmcburney.ca/"
+  ],
+  "content_scripts": [{
+    "matches": ["*://*.google.com/_/chrome/newtab*"],
+    "js": ["vendor/jquery.min.js","vendor/require.min.js","js/main.min.js","js/main.js", "src/js/Controller.js"]
+  }]
+}
