@@ -1,0 +1,25 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    emerald-lang (1.0.0)
+      htmlbeautifier (~> 1.1, >= 1.1.1)
+      htmlentities
+      thor
+      treetop
+    htmlbeautifier (1.2.1)
+    htmlentities (4.3.4)
+    polyglot (0.3.5)
+    sass (3.4.22)
+    thor (0.19.4)
+    treetop (1.6.8)
+      polyglot (~> 0.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  emerald-lang
+  sass
+
+BUNDLED WITH
+   1.13.6
