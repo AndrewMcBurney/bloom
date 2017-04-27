@@ -2,7 +2,7 @@
   * Todo.scala
   */
 
-package bloom
+package bloom.model
 
 class Todo(var text: String, var priority: Int, date: Int) {
 

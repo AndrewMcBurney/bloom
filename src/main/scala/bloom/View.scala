@@ -9,28 +9,26 @@
 
 package bloom
 
+// Bloom imports
+import bloom.model.Todo
+import bloom.model.Model
+
+// External imports
 import org.scalajs.dom
 import org.scalajs.jquery.jQuery
 import scala.scalajs.js.JSApp
 
 object Main extends JSApp {
 
-  // Abstract this away to a model class
-  var todos: Array[Todo] = Array[Todo]()
-
-  /**
-    * Updates view todoList with data from chrome storage
-    */
+  // Updates view todoList with data from chrome storage
   def updateTodoList(): Unit =
-    for (todo <- todos) jQuery("#todos").append(todo.returnHTML)
+    for (todo <- Model.todos) jQuery("#todos").append(todo.returnHTML)
 
-  /**
-    * Set up event listeners, etc.
-    */
+  // Set up event listeners, etc.
   def main(): Unit = {
-    todos = todos :+ new Todo("test one", 1, 1)
-    todos = todos :+ new Todo("test two", 1, 1)
-    todos = todos :+ new Todo("test three", 1, 1)
+    Model.addTodo("one")
+    Model.addTodo("two")
+    Model.addTodo("three")
 
     jQuery(() => updateTodoList())
 
