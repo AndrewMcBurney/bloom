@@ -6,7 +6,8 @@ html
   head
 
   body
-    h1 Test
+    section#todos
+      h1 Todos
 
     scripts
       "http://cdn.jsdelivr.net/jquery/2.1.1/jquery.js"
