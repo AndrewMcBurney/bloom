@@ -4,7 +4,7 @@
 
 package bloom.model
 
-class Todo(var text: String, var priority: Int, date: Int) {
+class Todo(id: Int, var text: String, var priority: Int) {
 
   // Edit todo text
   def changeText(newText: String) = text = newText
@@ -13,6 +13,6 @@ class Todo(var text: String, var priority: Int, date: Int) {
   def changePriority(newPriority: Int) = priority = newPriority
 
   // Return HTML representation
-  def toHTML(): String = s"<p>$text</p>"
+  def toHTML(): String = s"<p id='$id'>$text</p>"
 
 }

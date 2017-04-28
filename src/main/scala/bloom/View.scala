@@ -1,5 +1,5 @@
 /**
-  * View.scala
+  * View.scala - tightly coupled view and controller class
   *
   * @version: 1.0
   * @author:  Andrew McBurney <andrewrobertmcburney@gmail.com>

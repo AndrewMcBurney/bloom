@@ -4,15 +4,17 @@
 
 package bloom.model
 
+import bloom.globals.uuid
+import scala.collection.mutable.ArrayBuffer
+
 object Model {
 
-  var categories: Array[Category] = Array[Category]()
+  var categories: ArrayBuffer[Category] = ArrayBuffer[Category]()
 
-  def addCategory(text: String): Unit =
-    categories = categories :+ new Category(Array[Todo](), text, 0)
+  def addCategory(name: String): Unit = categories += new Category(uuid, name)
 
-  def getCategoryByID(id: Int): Category = categories(0)
+  def getCategoryByID(id: Int): Category = categories(id)
 
-  def getCategories(): Array[Category] = categories
+  def getCategories(): ArrayBuffer[Category] = categories
 
 }
