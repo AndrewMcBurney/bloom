@@ -13,6 +13,6 @@ class Todo(var text: String, var priority: Int, date: Int) {
   def changePriority(newPriority: Int) = priority = newPriority
 
   // Return HTML representation
-  def returnHTML(): String = s"<p>$text</p>"
+  def toHTML(): String = s"<p>$text</p>"
 
 }
