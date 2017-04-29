@@ -6,10 +6,7 @@ package bloom
 
 import bloom.model.Model
 
-import org.scalajs.dom
 import org.scalajs.dom.html
-import org.scalajs.jquery.jQuery
-import scala.scalajs.js.JSApp
 import org.scalajs.dom.ext.KeyCode
 import org.scalajs.dom.KeyboardEvent
 import scala.scalajs.js.annotation.JSExportTopLevel
