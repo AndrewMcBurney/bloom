@@ -85,6 +85,17 @@ html
         h1#time
         h2#location
 
+    section
+      h1 TodoList
+      hr
+      input#new_category.todo-input.todo-input-dark.float-left (
+        placeholder  "Add a category..."
+        autocomplete "off"
+        spellcheck   "true"
+        onkeypress   "addCategory(this)"
+      )
+      article#todo-list
+
     scripts
       "http://cdn.jsdelivr.net/jquery/2.1.1/jquery.js"
       "target/scala-2.12/bloom-fastopt.js"
