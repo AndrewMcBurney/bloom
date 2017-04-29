@@ -1,4 +1,8 @@
-target/
+# Compiled targets
 *.html
+target/
 src/main/resources/css
-.sass-cache
+
+# Cached files
+.sass-cache/
+.ensime_cache/
