@@ -1,2 +1,4 @@
 target/
 *.html
+src/main/resources/css
+.sass-cache

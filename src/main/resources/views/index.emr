@@ -5,6 +5,9 @@
 
 html
   head
+    styles
+      "src/main/resources/css/main.css"
+
     scripts
       "http://cdn.jsdelivr.net/jquery/2.1.1/jquery.js"
       "target/scala-2.12/bloom-fastopt.js"

@@ -1,3 +1,4 @@
 #!/bin/sh
 
 emerald process -b src/main/resources/views/index.emr -o index
+sass --update src/main/resources/sass/main.sass:src/main/resources/css/main.css --style compressed
