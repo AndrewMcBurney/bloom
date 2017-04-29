@@ -6,6 +6,9 @@ package bloom.model
 
 class Todo(id: Int, var text: String, var priority: Int) {
 
+  // Returns UUID hash code
+  def getId(): Int = id
+
   // Edit todo text
   def changeText(newText: String) = text = newText
 

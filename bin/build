@@ -1,0 +1,3 @@
+#!/bin/sh
+
+emerald process -b src/main/resources/views/index.emr -o index

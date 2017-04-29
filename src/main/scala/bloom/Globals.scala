@@ -13,7 +13,7 @@ import scala.collection.mutable.ArrayBuffer
 package object globals {
 
   // Typedefs
-  final type Todos = Array[Todo]
+  final type Todos = ArrayBuffer[Todo]
   final type Categories = ArrayBuffer[Category]
 
   // UUID
