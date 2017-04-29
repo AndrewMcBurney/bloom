@@ -1,7 +1,37 @@
-@font-face
-  font-family: HomeApple
-  src: url(/../fonts/HomemadeApple.ttf)
+//
+// Main styles
+// Coded by: Andrew McBurney
+//
 
-@font-face
+// Includes
+@import "includes/animate"
+@import "includes/fonts"
+@import "includes/variables"
+
+// General styles
+body
+  background: $white
+  color: $white
+  display: none
   font-family: Lato
-  src: url(/../fonts/Lato-Light.ttf)
+  height: 100vh
+  margin: 0 auto
+  padding: 0px 100px
+  width: 80%
+
+// Top section styles
+@import "styles/nav"
+
+// Header styles
+@import "styles/header"
+
+// Search bar styles
+@import "styles/form"
+
+// Footer styles
+@import "styles/footer"
+
+// Section styles
+@import "styles/section"
+@import "styles/todos"
+@import "styles/info"
