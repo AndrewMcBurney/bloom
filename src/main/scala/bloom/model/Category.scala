@@ -4,6 +4,7 @@
 
 package bloom.model
 
+import bloom.Main
 import bloom.globals._
 import scala.collection.mutable.ArrayBuffer
 

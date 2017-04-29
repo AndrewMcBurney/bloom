@@ -14,24 +14,32 @@ import bloom.model.Model
 import org.scalajs.dom
 import org.scalajs.jquery.jQuery
 import scala.scalajs.js.JSApp
+import scala.scalajs.js.annotation.JSExportTopLevel
 
 object Main extends JSApp {
 
+  /** Controller methods */
+
+  // Add Category with name
+  @JSExportTopLevel("addCategory")
+  def addCategory(): Unit = {
+    Model.addCategory("category_name")
+    jQuery(() => updateTodoList())
+  }
+
+  // Adds Todo for a given category
+  @JSExportTopLevel("addTodo")
+  def addTodo(): Unit = {
+    Model.getCategoryByID(0).addTodo("one")
+    jQuery(() => updateTodoList())
+  }
+
+  /** View Methods */
+
   // Updates view todoList with data from chrome storage
-  def updateTodoList(): Unit =
-    for (category <- Model.getCategories())
-      jQuery("#todos").append(category.toHTML)
+  def updateTodoList(): Unit = jQuery("#todos").html(Model.toHTML)
 
   // Set up event listeners, etc.
-  def main(): Unit = {
-    Model.addCategory("category_name")
-    Model.getCategoryByID(0).addTodo("one")
-    Model.getCategoryByID(0).addTodo("two")
-    Model.getCategoryByID(0).addTodo("three")
-
-    jQuery(() => updateTodoList())
-
-    // set up listeners here
-  }
+  def main(): Unit = jQuery(() => updateTodoList())
 
 }

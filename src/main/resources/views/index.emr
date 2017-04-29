@@ -1,14 +1,23 @@
 *
 * Bloom
+* Made with Emerald and ScalaJS
 *
 
 html
   head
-
-  body
-    section#todos
-      h1 Todos
-
     scripts
       "http://cdn.jsdelivr.net/jquery/2.1.1/jquery.js"
       "target/scala-2.12/bloom-fastopt.js"
+
+  body
+    h1 Bloom
+
+    section#list
+      h2 Todos
+      button Add Todo (
+        onclick "addTodo()"
+      )
+      button Add Category (
+        onclick "addCategory()"
+      )
+      section#todos
