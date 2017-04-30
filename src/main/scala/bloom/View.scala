@@ -1,5 +1,5 @@
 /**
-  * View.scala - tightly coupled view and controller class
+  * View.scala
   *
   * @version: 1.0
   * @author:  Andrew McBurney <andrewrobertmcburney@gmail.com>
@@ -18,6 +18,12 @@ object View extends JSApp {
 
   // Updates view todoList with data from chrome storage
   def updateTodoList(): Unit = jQuery("#todo-list").html(Model.toHTML)
+
+  // Display element with given id
+  def hide(id: String): Unit = jQuery(id).css("display", "none")
+
+  // Display element with given id
+  def display(id: String): Unit = jQuery(id).css("display", "block")
 
   // Initial UI setup
   def setUpUI(): Unit = {

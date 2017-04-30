@@ -17,24 +17,22 @@ object Controller {
   @JSExportTopLevel("addCategory")
   def addCategory(in: html.Input): Unit = {
     in.onkeydown = { (e: KeyboardEvent) =>
-      // Add a category if the keyCode is Enter
-      if (e.keyCode == KeyCode.Enter) {
-        // Add Category in model
-        Model.addCategory(in.value)
-        println("add category")
-      }
+      // Add a category to model if the keyCode is Enter
+      if (e.keyCode == KeyCode.Enter) Model.addCategory(in.value)
     }
   }
 
+  // TODO
   // Adds Todo for a given category
   @JSExportTopLevel("addTodo")
   def addTodo(in: html.Input): Unit = {
     in.onkeydown = { (e: KeyboardEvent) =>
-      if (e.keyCode == KeyCode.Enter) {
-        Model.getCategoryByID(0).addTodo("one")
-        println("add todo")
-      }
+      if (e.keyCode == KeyCode.Enter) Model.getCategoryByID(0).addTodo("one")
     }
   }
+
+  // Adds Todo for a given category
+  @JSExportTopLevel("displayModal")
+  def displayModal(id: String): Unit = Model.setCurrentOpenModal(id)
 
 }

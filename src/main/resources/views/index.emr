@@ -34,6 +34,7 @@ html
         )
           img#todos (
             src "src/main/resources/images/general/top/list.png"
+            onclick "displayModal(this.id)"
           )
         a.top (
           title "Weather"
@@ -85,7 +86,7 @@ html
         h1#time
         h2#location
 
-    section
+    section.todos
       h1 TodoList
       hr
       input#new_category.todo-input.todo-input-dark.float-left (
