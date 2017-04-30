@@ -30,9 +30,15 @@ object Model {
 
   // Sets the id of the current modal displayed - null if none
   def setCurrentOpenModal(id: String): Unit = {
+    // Hide current modal if it's displayed
     View.hide(s"section.$openModalId")
-    openModalId = id
-    View.display(s"section.$openModalId")
+
+    // Don't display the modal if the id hasn't changed (ie. toggle it)
+    if (openModalId != id) {
+      openModalId = id
+      View.display(s"section.$openModalId")
+    } else
+      openModalId = "null"
   }
 
 }
