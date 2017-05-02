@@ -28,6 +28,14 @@ object Model {
   // Return list of all categories as HTML
   def toHTML(): String = categories.map(_.toHTML).mkString("")
 
+  // Callback function used for JavaScript chrome API
+  def callback(results: String): Unit = {}
+
+  // Storage location
+  def test(): Unit = {
+    Storage.location(callback _)
+  }
+
   // Sets the id of the current modal displayed - null if none
   def setCurrentOpenModal(id: String): Unit = {
     // Hide current modal if it's displayed
@@ -40,5 +48,4 @@ object Model {
     } else
       openModalId = "null"
   }
-
 }

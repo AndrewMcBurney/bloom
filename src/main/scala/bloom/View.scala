@@ -17,7 +17,7 @@ import scala.scalajs.js.JSApp
 object View extends JSApp {
 
   // Updates view todoList with data from chrome storage
-  def updateTodoList(): Unit = jQuery("#todo-list").html(Model.toHTML)
+  def updateTodoList(): Unit = jQuery("#todo-list").html(Model.toHTML())
 
   // Display element with given id
   def hide(id: String): Unit = jQuery(id).css("display", "none")
@@ -29,6 +29,7 @@ object View extends JSApp {
   def setUpUI(): Unit = {
     jQuery("body").css("display", "block")
     updateTodoList()
+    Model.test()
   }
 
   // Set up event listeners, etc.
