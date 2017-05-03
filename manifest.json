@@ -21,6 +21,7 @@
     "js": [
       "src/main/resources/js/vendor/jquery2.1.1.js",
       "src/main/resources/js/chrome.js",
+      "src/main/resources/js/date.js",
       "src/main/resources/js/main.js",
       "target/scala-2.12/bloom-fastopt.js"
     ]

@@ -7,11 +7,22 @@ package bloom
 import bloom.model.Model
 
 import org.scalajs.dom.html
+import scala.scalajs.js.timers._
 import org.scalajs.dom.ext.KeyCode
 import org.scalajs.dom.KeyboardEvent
 import scala.scalajs.js.annotation.JSExportTopLevel
 
 object Controller {
+
+  // Updates the time
+  def time(): Unit = {
+    Model.updateTime()
+
+    // Update every second
+    setInterval(1000) {
+      Model.updateTime()
+    }
+  }
 
   // Add Category with name
   @JSExportTopLevel("addCategory")

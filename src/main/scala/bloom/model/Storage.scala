@@ -1,22 +1,29 @@
 /**
   * Storage.scala
+  * JavaScript facade for storage object
   */
 
 package bloom.model
 
-import scala.scalajs.js.annotation.JSGlobal
+import bloom.View
 import scala.scalajs.js
+import scala.scalajs.js.annotation.JSGlobal
 
 object Storage {
-  type ChromeCallback = String => Unit
 
-  def location(callback: ChromeCallback): Unit = {
-    _Storage.location((results: js.UndefOr[String]) => {println(results)})
-  }
+  // Returns string representation of categories
+  def categories(callback: String => Unit): Unit =
+    _Storage.categories((location: String) => View.updateLocation(location))
+
+  // Returns string representation of current location
+  def location(callback: String => Unit): Unit =
+    _Storage.location((location: String) => View.updateLocation(location))
+
 }
 
 @js.native
 @JSGlobal("storage")
 object _Storage extends js.Object {
-  def location(callback: js.Function1[js.UndefOr[String], _]): Unit = js.native
+  def categories(callback: js.Function1[String, _]): Unit = js.native
+  def location(callback: js.Function1[String, _]): Unit = js.native
 }

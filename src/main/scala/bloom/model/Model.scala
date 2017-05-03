@@ -5,22 +5,20 @@
 package bloom.model
 
 import bloom.View
+import bloom.ClockMode
 import bloom.globals._
 import scala.collection.mutable.ArrayBuffer
 
 object Model {
+
+  // Clock mode representation
+  val clockMode: ClockMode.Value = ClockMode.Standard
 
   // ArrayBuffer list of user categories
   var categories: Categories = ArrayBuffer[Category]()
 
   // Keeps track of the open modal
   var openModalId: String = "null"
-
-  // Adds a category with given name
-  def addCategory(name: String): Unit = {
-    categories += new Category(uuid, name)
-    View.updateTodoList()
-  }
 
   // Return category by UUID
   def getCategoryByID(id: Int): Category = categories(id)
@@ -32,8 +30,17 @@ object Model {
   def callback(results: String): Unit = {}
 
   // Storage location
-  def test(): Unit = {
-    Storage.location(callback _)
+  def getLocation(): Unit = Storage.location(callback _)
+
+  // Update time based on clockMode value (military or standard)
+  def updateTime(): Unit =
+    if (clockMode == ClockMode.Military) View.updateTime(Date.getMilitaryTime)
+    else View.updateTime(Date.getStandardTime)
+
+  // Adds a category with given name
+  def addCategory(name: String): Unit = {
+    categories += new Category(uuid, name)
+    View.updateTodoList()
   }
 
   // Sets the id of the current modal displayed - null if none
@@ -48,4 +55,5 @@ object Model {
     } else
       openModalId = "null"
   }
+
 }

@@ -20,3 +20,8 @@ package object globals {
   def uuid = java.util.UUID.randomUUID.hashCode
 
 }
+
+// Clock Mode object representation
+object ClockMode extends Enumeration {
+  val Military, Standard = Value
+}
