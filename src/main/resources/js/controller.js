@@ -14,4 +14,4 @@ $("#new_category").on('keypress', function(e) {
 setInterval(function() {
   var date = new Date();
   Controller.time(date.getMinutes(), date.getHours());
-}, 1000);
+}, 100);
