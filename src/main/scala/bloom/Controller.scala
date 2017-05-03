@@ -5,45 +5,21 @@
 package bloom
 
 import bloom.model.Model
+import scala.scalajs.js.annotation._
 
-import org.scalajs.dom.html
-import scala.scalajs.js.timers._
-import org.scalajs.dom.ext.KeyCode
-import org.scalajs.dom.KeyboardEvent
-import scala.scalajs.js.annotation.JSExportTopLevel
-
+@JSExportTopLevel("Controller")
 object Controller {
 
-  // Updates the time
-  def time(): Unit = {
-    Model.updateTime()
-
-    // Update every second
-    setInterval(1000) {
-      Model.updateTime()
-    }
-  }
+  // Updates the time every second
+  @JSExport
+  def time(m: Int, h: Int): Unit = Model.updateTime(m, h)
 
   // Add Category with name
-  @JSExportTopLevel("addCategory")
-  def addCategory(in: html.Input): Unit = {
-    in.onkeydown = { (e: KeyboardEvent) =>
-      // Add a category to model if the keyCode is Enter
-      if (e.keyCode == KeyCode.Enter) Model.addCategory(in.value)
-    }
-  }
-
-  // TODO
-  // Adds Todo for a given category
-  @JSExportTopLevel("addTodo")
-  def addTodo(in: html.Input): Unit = {
-    in.onkeydown = { (e: KeyboardEvent) =>
-      if (e.keyCode == KeyCode.Enter) Model.getCategoryByID(0).addTodo("one")
-    }
-  }
+  @JSExport
+  def addCategory(categoryName: String): Unit = Model.addCategory(categoryName)
 
   // Adds Todo for a given category
-  @JSExportTopLevel("displayModal")
+  @JSExport
   def displayModal(id: String): Unit = Model.setCurrentOpenModal(id)
 
 }

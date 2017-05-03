@@ -41,7 +41,6 @@ object View extends JSApp {
     Model.getLocation()
     updateTodoList()
     jQuery("body").css("display", "block")
-    Controller.time()
   }
 
   // Set up event listeners, etc.

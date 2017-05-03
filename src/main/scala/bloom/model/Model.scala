@@ -12,7 +12,7 @@ import scala.collection.mutable.ArrayBuffer
 object Model {
 
   // Clock mode representation
-  val clockMode: ClockMode.Value = ClockMode.Standard
+  val clock: ClockMode.Value = ClockMode.Standard
 
   // ArrayBuffer list of user categories
   var categories: Categories = ArrayBuffer[Category]()
@@ -33,9 +33,9 @@ object Model {
   def getLocation(): Unit = Storage.location(callback _)
 
   // Update time based on clockMode value (military or standard)
-  def updateTime(): Unit =
-    if (clockMode == ClockMode.Military) View.updateTime(Date.getMilitaryTime)
-    else View.updateTime(Date.getStandardTime)
+  def updateTime(m: Int, h: Int): Unit =
+    if (clock == ClockMode.Military) View.updateTime(Date.getMilitaryTime(m, h))
+    else View.updateTime(Date.getStandardTime(m, h))
 
   // Adds a category with given name
   def addCategory(name: String): Unit = {

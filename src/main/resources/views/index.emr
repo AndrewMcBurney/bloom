@@ -14,7 +14,7 @@ html
         a.top (
           title "Todos"
         )
-          p#todos 13
+          p#todo-icon 13
       ul#right
         a.chrome (
           title "Bookmarks"
@@ -33,7 +33,6 @@ html
         )
           img#todos (
             src "src/main/resources/images/general/top/list.png"
-            onclick "displayModal(this.id)"
           )
         a.top (
           title "Weather"
@@ -92,13 +91,12 @@ html
         placeholder  "Add a category..."
         autocomplete "off"
         spellcheck   "true"
-        onkeypress   "addCategory(this)"
       )
       article#todo-list
 
     scripts
       "src/main/resources/js/vendor/jquery2.1.1.js"
       "src/main/resources/js/chrome.js"
-      "src/main/resources/js/date.js"
       "src/main/resources/js/main.js"
       "target/scala-2.12/bloom-fastopt.js"
+      "src/main/resources/js/controller.js"

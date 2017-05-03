@@ -4,31 +4,22 @@
 
 package bloom.model
 
-import scala.scalajs.js
-import scala.scalajs.js.annotation.JSGlobal
-
 object Date {
 
   // Returns formatted minutes string
-  def formatMinutes(): String = "%02d".format(_Date.minutes)
+  def formatMinutes(m: Int): String = "%02d".format(m)
 
   // Returns formatted hour string for standard time
-  def formatHours(): String = "%02d".format(_Date.hours - 12)
+  def formatHours(h: Int): String = "%02d".format(h % 12)
 
   // Returns formatted period string for standard time
-  def formatPeriod(): String = if (_Date.hours >= 12) "PM" else "AM"
+  def formatPeriod(h: Int): String = if (h >= 12) "PM" else "AM"
 
   // Returns string representation of date in military time
-  def getMilitaryTime(): String = s"${_Date.hours}:$formatMinutes"
+  def getMilitaryTime(m: Int, h: Int): String = s"$h:${formatMinutes(m)}"
 
   // Returns string representation of date in standard time
-  def getStandardTime(): String = s"$formatHours:$formatMinutes $formatPeriod"
+  def getStandardTime(m: Int, h: Int): String =
+    s"${formatHours(h)}:${formatMinutes(m)} ${formatPeriod(h)}"
 
-}
-
-@js.native
-@JSGlobal("time")
-object _Date extends js.Object {
-  val hours: Int = js.native
-  val minutes: Int = js.native
 }
