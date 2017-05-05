@@ -11,14 +11,25 @@ import scala.collection.mutable.ArrayBuffer
 
 object Model {
 
+  /**
+    * Object members
+    */
+
   // Clock mode representation
   val clock: ClockMode.Value = ClockMode.Standard
+
+  // Internal representation of minutes - if this changes, update view
+  var min: Int = -1
 
   // ArrayBuffer list of user categories
   var categories: Categories = ArrayBuffer[Category]()
 
   // Keeps track of the open modal
   var openModalId: String = "null"
+
+  /**
+    * Object functions
+    */
 
   // Return category by UUID
   def getCategoryByID(id: Int): Category = categories(id)
@@ -34,8 +45,15 @@ object Model {
 
   // Update time based on clockMode value (military or standard)
   def updateTime(m: Int, h: Int): Unit =
-    if (clock == ClockMode.Military) View.updateTime(Date.getMilitaryTime(m, h))
-    else View.updateTime(Date.getStandardTime(m, h))
+    if (m != min) {
+      min = m
+
+      // Update the view time
+      if (clock == ClockMode.Military)
+        View.updateTime(Date.getMilitaryTime(m, h))
+      else
+        View.updateTime(Date.getStandardTime(m, h))
+    }
 
   // Adds a category with given name
   def addCategory(name: String): Unit = {

@@ -77,7 +77,7 @@ html
 
     footer
       div#left
-        p <span id="title"></span> - <span id="info"></span>
+        p <span id="title">$title</span> - <span id="info">$info</span>
         p Photo taken by <a href="http://www.petermcburney.com">Peter McBurney</a>
 
       div#right
